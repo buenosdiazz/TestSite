@@ -64,6 +64,9 @@ var imagename = "IsaacNHC";
         .attr("width", w + p)
         .attr("height", h + p);
 
+
+
+
       svg
         .append('svg:image')
         .attr("xlink:href", "images/Isaac_NHC.png")
@@ -87,6 +90,55 @@ var imagename = "IsaacNHC";
             .attr("x", 0)
             .attr("y", 0)
             .style("opacity", 1);
+
+            var pieslices = [20, 20, 20, 20, 20, 20, 20, 20]
+            var radius = 200
+
+
+            var pie = d3.pie()
+            .startAngle(-90 * Math.PI/180)
+            .endAngle(-90 * Math.PI/180 + 2*Math.PI)
+              .value(function(d) {
+                return d.value;
+              })
+
+
+            var pie_ready = pie(d3.entries(pieslices))
+
+
+            svg
+              .selectAll('pie')
+              .data(pie_ready)
+              .enter()
+              .append('path')
+              .attr("transform", "translate(707,552.5), rotate(-23)")
+              .attr("droppable", true)
+              .attr('d', d3.arc()
+                .innerRadius(0)
+                .outerRadius(radius)
+              )
+              .attr('fill', "grey")
+              .style("fill-opacity", 0.03)
+              .attr("id", function(d, i) {
+                return "arc_" + i;
+              })
+              .attr("stroke", "grey")
+              .style("stroke-width", ".75px")
+              .style("stroke-opacity", .9);
+
+
+              svg.selectAll(".sectorText")
+                  .data(pie_ready)
+                  .enter().append("text")
+                  .attr("class", "sectorText")
+                  .attr("dy", +15)
+                  .append("textPath")
+                    .attr("startOffset","15%")
+                    .style("text-anchor","middle")
+                    .attr("id",function(d,i){return "text_arc_"+i;})
+                  .attr("xlink:href",function(d,i){return "#arc_"+i;})
+                  .text("0");
+
 
 
 
@@ -224,54 +276,6 @@ console.log(total);
 // });
 
       }
-
-      var pieslices = [20, 20, 20, 20, 20, 20, 20, 20]
-      var radius = 200
-
-
-      var pie = d3.pie()
-      .startAngle(-90 * Math.PI/180)
-      .endAngle(-90 * Math.PI/180 + 2*Math.PI)
-        .value(function(d) {
-          return d.value;
-        })
-
-
-      var pie_ready = pie(d3.entries(pieslices))
-
-
-      svg
-        .selectAll('pie')
-        .data(pie_ready)
-        .enter()
-        .append('path')
-        .attr("transform", "translate(707,552.5), rotate(-23)")
-        .attr("droppable", true)
-        .attr('d', d3.arc()
-          .innerRadius(0)
-          .outerRadius(radius)
-        )
-        .attr('fill', "grey")
-        .style("fill-opacity", 0.03)
-        .attr("id", function(d, i) {
-          return "arc_" + i;
-        })
-        .attr("stroke", "grey")
-        .style("stroke-width", ".75px")
-        .style("stroke-opacity", .9);
-
-
-        svg.selectAll(".sectorText")
-        		.data(pie_ready)
-        		.enter().append("text")
-        		.attr("class", "sectorText")
-        		.attr("dy", +15)
-        		.append("textPath")
-              .attr("startOffset","15%")
-              .style("text-anchor","middle")
-              .attr("id",function(d,i){return "text_arc_"+i;})
-        		.attr("xlink:href",function(d,i){return "#arc_"+i;})
-        		.text("0");
 
 
 
