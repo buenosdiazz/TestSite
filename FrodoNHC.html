@@ -74,7 +74,6 @@ var imagename = "IsaacNHC";
         .attr("height", "100%")
         .attr("x", 0)
         .attr("y", 0)
-        .attr("z-index", 0)
         .style("opacity", .8);
 
 
@@ -106,7 +105,7 @@ var imagename = "IsaacNHC";
                       //console.log(d3.event.y);
             var total = 0;
                     //console.log(e)
-                  d3.select(this).lower();
+                  //d3.select(this).lower();
                     var arc_id = d3.select(document.elementFromPoint(d3.event.sourceEvent.clientX, d3.event.sourceEvent.clientY)).attr("id");
                     d3.select(this).raise();
 
@@ -331,8 +330,10 @@ console.log(localStorage.getItem("participant"));
 });
 
 
-
   </script>
+  <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+  <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+  <script src="https://d3js.org/d3-drag.v1.min.js"></script>
 <div>
   <button id="nextb" type="button"> NEXT MAP >> </button>
 </div>
