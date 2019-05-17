@@ -19,7 +19,7 @@ font-size: 16px;
 <body>
 
 
-  <h3> testzz Place the numbered chips in the corresponding sectors </h3>
+  <h3> testzzz Place the numbered chips in the corresponding sectors </h3>
 
 </body>
 
@@ -120,6 +120,7 @@ var imagename = "IsaacNHC";
                       //console.log(d3.event.y);
             var total = 0;
                     //console.log(e);
+                    svg.lower();
                     d3.select(this).lower();
                     var arc_id = d3.select(document.elementFromPoint(d3.event.sourceEvent.clientX, d3.event.sourceEvent.clientY)).attr("id");
                     d3.select(this).raise();
