@@ -84,7 +84,7 @@ var imagename = "IsaacNHC";
               //drag functions
                   function dragstarted(e) {
                     //console.log("dragstart:",d3.event.target);
-                    d3.select(this).raise().classed("active", true);
+                    d3.select(this).lower().classed("active", true);
                   }
 
                   function dragged(d) {
@@ -144,7 +144,7 @@ var imagename = "IsaacNHC";
                     //console.log(counts);
                     //console.log(total);
 
-                   d3.select(this).classed("active", true);
+                   d3.select(this).classed("active", false);
                     var circlemoved = []
                     var x = d3.event.x;
                     var y = d3.event.y;
