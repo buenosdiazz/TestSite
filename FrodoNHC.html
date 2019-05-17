@@ -84,12 +84,12 @@ var imagename = "IsaacNHC";
 
 
               //drag functions
-                  function dragstarted(e) {
+                  function touchstart(e) {
                     //console.log("dragstart:",d3.event.target);
                     d3.select(this).lower().classed("active", true);
                   }
 
-                  function dragged(d) {
+                  function touchmove(d) {
                     d3.select(this).select("circle").attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
 
 
@@ -101,7 +101,7 @@ var imagename = "IsaacNHC";
                   }
 
 
-                  function dragended(d, e) {
+                  function touchend(d, e) {
                     //  console.log("dropped circle:");
                     //   console.log(d);
                     //console.log(d3.event.x);
@@ -232,9 +232,9 @@ var imagename = "IsaacNHC";
                                 .attr("cursor", "move")
                                 .attr("z-index", 20)
                                 .call(d3.drag()
-                                  .on("start", dragstarted)
-                                  .on("drag", dragged)
-                                  .on("end", dragended));
+                                  .on("start", touchstart)
+                                  .on("drag", touchmove)
+                                  .on("end", touchend));
 
                               group.append("circle")
                                 .attr("cx", function(d) {
