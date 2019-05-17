@@ -24,7 +24,10 @@ font-size: 16px;
 </body>
 
 <script src="https://d3js.org/d3.v5.min.js"></script>
-
+<script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
 
 <script>
 var timeSpent = 0; //seconds on page
@@ -73,20 +76,7 @@ var imagename = "MatthewNHC";
         .attr("y", 25)
         .style("opacity", .8);
 
-        var svg2 = d3.select("body")
-          .append("svg")
-          .attr("width", 410)
-          .attr("height", 890);
 
-
-          svg2
-            .append('svg:image')
-            .attr("xlink:href", "images/Matthew_NHC2.png")
-            .attr("width", "100%")
-            .attr("height", "42%")
-            .attr("x", 0)
-            .attr("y", 0)
-            .style("opacity", 1);
 
 
 
@@ -97,9 +87,14 @@ var imagename = "MatthewNHC";
         .attr("draggable", true)
         //cursor design
         .attr("cursor", "move")
+        .on('touchstart', dragstarted)
+        .on("touchmove", dragged)
+        .on("touchend", dragended)
         .call(d3.drag()
           .on("start", dragstarted)
+
           .on("drag", dragged)
+
           .on("end", dragended));
 
       group.append("circle")
@@ -275,10 +270,7 @@ console.log(total);
     });
 
 </script>
-<script
-  src="https://code.jquery.com/jquery-3.4.0.min.js"
-  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-  crossorigin="anonymous"></script>
+
   <script type="text/javascript">
   //Button interaction
 $(function(){
@@ -317,7 +309,7 @@ console.log(localStorage.getItem("participant"));
                 }
                }).done(function(data) {
                   console.log(data);
-                  setTimeout("location.href = 'FrodoNHC.html';",200);
+                  setTimeout("location.href = 'JaimeNHC.html';",200);
                })
                ;
 
