@@ -73,6 +73,7 @@ var imagename = "IsaacNHC";
         .attr("height", "100%")
         .attr("x", 0)
         .attr("y", 0)
+        .attr("z", 0)
         .style("opacity", .8);
 
         var svg2 = d3.select("body")
@@ -80,15 +81,6 @@ var imagename = "IsaacNHC";
           .attr("width", 410)
           .attr("height", 900);
 
-
-          svg2
-            .append('svg:image')
-            .attr("xlink:href", "images/Isaac_NHC2.png")
-            .attr("width", "100%")
-            .attr("height", "42%")
-            .attr("x", 0)
-            .attr("y", 0)
-            .style("opacity", 1);
 
             var pieslices = [20, 20, 20, 20, 20, 20, 20, 20]
             var radius = 200
@@ -239,6 +231,7 @@ var imagename = "IsaacNHC";
                                 .attr("draggable", true)
                                 //cursor design
                                 .attr("cursor", "move")
+                                .attr("z", 20)
                                 .call(d3.drag()
                                   .on("start", dragstarted)
                                   .on("drag", dragged)
