@@ -19,7 +19,7 @@ font-size: 16px;
 <body>
 
 
-  <h3> test2 Place the numbered chips in the corresponding sectors </h3>
+  <h3> testzz Place the numbered chips in the corresponding sectors </h3>
 
 </body>
 
@@ -73,13 +73,10 @@ var imagename = "IsaacNHC";
         .attr("height", "100%")
         .attr("x", 0)
         .attr("y", 0)
-        .attr("z", 0)
+        .attr("z-index", 0)
         .style("opacity", .8);
 
-        var svg2 = d3.select("body")
-          .append("svg")
-          .attr("width", 410)
-          .attr("height", 900);
+
 
 
             var pieslices = [20, 20, 20, 20, 20, 20, 20, 20]
@@ -195,6 +192,7 @@ var imagename = "IsaacNHC";
               .enter()
               .append('path')
               .attr("transform", "translate(707,552.5), rotate(-23)")
+              .attr("z-index", 10)
               .attr("droppable", true)
               .attr('d', d3.arc()
                 .innerRadius(0)
@@ -231,7 +229,7 @@ var imagename = "IsaacNHC";
                                 .attr("draggable", true)
                                 //cursor design
                                 .attr("cursor", "move")
-                                .attr("z", 20)
+                                .attr("z-index", 20)
                                 .call(d3.drag()
                                   .on("start", dragstarted)
                                   .on("drag", dragged)
