@@ -19,7 +19,7 @@ font-size: 16px;
 <body>
 
 
-  <h3> testzzz Place the numbered chips in the corresponding sectors </h3>
+  <h3> test2 Place the numbered chips in the corresponding sectors </h3>
 
 </body>
 
@@ -68,6 +68,7 @@ var imagename = "IsaacNHC";
 
       svg
         .append('svg:image')
+        .order()
         .attr("xlink:href", "images/Isaac_NHC.png")
         .attr("width", "100%")
         .attr("height", "100%")
@@ -77,21 +78,6 @@ var imagename = "IsaacNHC";
         .style("opacity", .8);
 
 
-
-
-            var pieslices = [20, 20, 20, 20, 20, 20, 20, 20]
-            var radius = 200
-
-
-            var pie = d3.pie()
-            .startAngle(-90 * Math.PI/180)
-            .endAngle(-90 * Math.PI/180 + 2*Math.PI)
-              .value(function(d) {
-                return d.value;
-              })
-
-
-            var pie_ready = pie(d3.entries(pieslices))
 
 
 
@@ -119,9 +105,8 @@ var imagename = "IsaacNHC";
                     //console.log(d3.event.x);
                       //console.log(d3.event.y);
             var total = 0;
-                    //console.log(e);
-                    svg.lower();
-                    d3.select(this).lower();
+                    //console.log(e)
+                  d3.select(this).lower();
                     var arc_id = d3.select(document.elementFromPoint(d3.event.sourceEvent.clientX, d3.event.sourceEvent.clientY)).attr("id");
                     d3.select(this).raise();
 
@@ -186,6 +171,19 @@ var imagename = "IsaacNHC";
                   }
 
 
+                              var pieslices = [20, 20, 20, 20, 20, 20, 20, 20]
+                              var radius = 200
+
+
+                              var pie = d3.pie()
+                              .startAngle(-90 * Math.PI/180)
+                              .endAngle(-90 * Math.PI/180 + 2*Math.PI)
+                                .value(function(d) {
+                                  return d.value;
+                                })
+
+
+                              var pie_ready = pie(d3.entries(pieslices))
 
             svg
               .selectAll('pie')
